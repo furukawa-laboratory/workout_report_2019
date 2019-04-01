@@ -2,14 +2,14 @@
 
 # 概要
 カテゴリ・難易度別に以下のトピックについてトレーニングを行う．
-| |ビギナー|常人|玄人|達人|神|  
+|            |ビギナー      |常人         |玄人    |達人  |神   |  
 | ---------- | ---------- | ---------- | ------ | --- | --- |
 | 線形代数    | <span style="color: purple; ">ベクトル空間</span>| <span style="color: red; ">線形変換</span>| <span style="color: red; ">特異値分解と主成分分析</span>| ガウス過程       | 情報幾何    |
 | ベイズ（確率） | <span style="color: purple; ">ベイズルール</span>| <span style="color: red; ">点推定</span>| <span style="color: red; ">分布推定</span>| ガウス過程       | モデル選択   |
-| 前処理     | <span style="color: purple; ">正規化</span>| <span style="color: blue; ">データセット</span>| <span style="color: blue; ">生データ</span> | 特徴量エンジニアリング | 表現学習    |
-| モデル     | <span style="color: purple; ">実装済みモデルの利用</span>| <span style="color: blue; ">kerasによる実装</span>| <span style="color: purple; ">スクラッチ実装</span>| 問題設定①       | 問題設定②   |
-| 検証      | <span style="color: purple; ">描画</span>| <span style="color: blue; ">評価指標①</span>| 評価指標②| 実験デザイン①     | 実験デザイン② |
-コースごとに選択する内容が異なる．<span style="color: purple; ">紫</span>は理論コース,応用コース共通,<span style="color: red; ">赤</span>は理論コース向き,<span style="color: blue; ">青</span>が理論コース向け．
+| 前処理     | <span style="color: purple; ">正規化</span>| <span style="color: blue; ">データセット</span>| <span style="color: blue; ">生データ</span> | 特徴量エンジニアリング | 表現学習    |
+| モデル     | <span style="color: purple; ">実装済みモデルの利用</span>| <span style="color: blue; ">kerasによる実装</span>| <span style="color: purple; ">スクラッチ実装</span>| 問題設定①       | 問題設定②   |
+| 検証      | <span style="color: purple; ">描画</span>| <span style="color: blue; ">評価指標①</span>| 評価指標②| 実験デザイン①     | 実験デザイン② |
+コースごとに選択する内容が異なる．<span style="color: purple; ">紫</span>は理論コース,応用コース共通,<span style="color: red; ">赤</span>は理論コース向き,<span style="color: blue; ">青</span>が理論コース向け．
 ## コース
 基本的には理論と応用の2つだが，他のコースを選ぶ場合は要相談．
 - **D進コース**
@@ -43,7 +43,7 @@
 
 ## **理論(線形代数・ベイズ)**
 > **獲得スキルセット**
-> - 線形代数
+> - 線形代数
 >    - ビギナー：ベクトル空間
 >       - ベクトル空間が何かを説明できる
 >       - ベクトル空間に標準内積を導入できる
