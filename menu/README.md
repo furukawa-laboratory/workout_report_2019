@@ -9,13 +9,12 @@
 | 線形代数    | <span style="color: purple; ">ベクトル空間</span>| <span style="color: red; ">線形変換</span>| <span style="color: red; ">特異値分解と主成分分析</span>| ガウス過程       | 情報幾何    |
 | ベイズ（確率） | <span style="color: purple; ">ベイズルール</span>| <span style="color: red; ">点推定</span>| <span style="color: red; ">分布推定</span>| ガウス過程       | モデル選択   |
 | 前処理     | <span style="color: purple; ">正規化</span>| <span style="color: blue; ">データセット</span>| <span style="color: blue; ">生データ</span> | 特徴量エンジニアリング | 表現学習    |
-| モデル     | <span style="color: purple; ">実装済みモデルの利用</span>| <span style="color: blue; ">kerasによる実装</span>| <span style="color: purple; ">スクラッチ実装</span>| 問題設定①       | 問題設定②   |
-| 検証      | <span style="color: purple; ">描画</span>| <span style="color: blue; ">評価指標①</span>| 評価指標②| 実験デザイン①     | 実験デザイン② |
+| モデル     | <span style="color: purple; ">実装済みモデルの利用</span>| <span style="color: blue; ">kerasによる実装</span>| <span style="color: purple; ">スクラッチ実装</span>| 問題設定<br>（教師あり）       | 問題設定<br>（教師なし）   |
+| 検証      | <span style="color: purple; ">描画</span>| <span style="color: blue; ">評価指標<br>（教師あり）</span>| 評価指標<br>（教師なし）| 実験デザイン<br>（教師あり）     | 実験デザイン<br>（教師なし） |
 
 コースごとに選択する内容が異なる．
 
 ## コース
-基本的には理論と応用の2つだが，他のコースを選ぶ場合は要相談．
 - **D進コース**
   - Doctorコースに進学したい人向け
   - カリキュラムは別途，提示します
@@ -25,7 +24,8 @@
   - 実装志向
 - **卒業さえできればいいやコース**
   - カリキュラムは別途、提示します．
-  
+
+### コース別の取り組むメニューリスト
 |            |ビギナー      |常人         |玄人    |達人  |神   |  
 | ---------- | ---------- | ---------- | ------ | --- | --- |
 | 理論コース| 全てやる|線形代数，ベイズ| 線形代数，ベイズ，モデル| エクストラ| エクストラ |
