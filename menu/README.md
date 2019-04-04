@@ -134,6 +134,7 @@
 1. [チュートリアル](https://weblabo.oscasierra.net/python/keras-mnist-sample.html)を実行しmnist datasetをClassificationせよ
 2. CNNを構築しmnist datasetに対するClassificationの精度を向上させよ
 3. Autoencoderを構築しmnistデータを用いて学習させよ．また入力データと再構成した画像を比較せよ．
+   任意の潜在変数からデコードした画像を表示せよ.
 
 **玄人：スクラッチ実装**
 > **獲得スキルセット**
@@ -157,7 +158,7 @@
 >    - plot
 >    - scatter
 >    - histgram
-1. matplotlib tutorialのpyplot tutorialの内容を実行せよ.(必要に応じて[matplotlibのuser guide](https://matplotlib.org/tutorials/index.html)も参考に)
+1. matplotlib tutorialの[pyplot tutorial](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py)の内容を実行せよ.(必要に応じて[matplotlibのuser guide](https://matplotlib.org/tutorials/index.html)も参考に)
 2. matplotlib tutorialのsample plots in matplotlibのサンプルプログラムを実行せよ
 3. 自分の好きな関数を３つ選んで同じfigureでplotを用いて描画せよ
 4. 自分の好きな関数を1つ選んで3次元のプロットを実行せよ.
