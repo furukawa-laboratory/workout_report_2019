@@ -47,6 +47,7 @@
 
 ### **Git**
 - SourcetreeをPCにインストールせよ
+- GithubとSourcetreeのアカウントを作成せよ
 - ワークショップに参加せよ
    - [この記事](https://naichilab.blogspot.com/2014/01/gitsourcetreegit.html)の内容を皆で行うワークショップを4/16に開催する．
 
