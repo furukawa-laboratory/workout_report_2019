@@ -46,7 +46,9 @@
 を受講せよ
 
 ### **Git**
-[この記事](https://naichilab.blogspot.com/2014/01/gitsourcetreegit.html)の内容を皆で行うワークショップを開催する．
+- SourcetreeをPCにインストールせよ
+- ワークショップに参加せよ
+   - [この記事](https://naichilab.blogspot.com/2014/01/gitsourcetreegit.html)の内容を皆で行うワークショップを4/16に開催する．
 
 ### **Github**
 ワークショップを開催する．[参考資料](https://qiita.com/takeokunnn/items/5bc499121a21f8c5b990
