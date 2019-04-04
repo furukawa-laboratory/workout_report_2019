@@ -40,17 +40,23 @@
 ### **Python**
 
 - Python環境をセットアップせよ．
-   - Anacondaを用いたPythonパッケージの導入．バージョンは3系であれば特に指定しない．
+   - Anaconda等を用いたPythonパッケージの導入．バージョンは3系であれば特に指定しない．
    - Jupyter notebookも起動できるようにしておく
 - [AidemyのPython入門コース](https://naichilab.blogspot.com/2014/01/gitsourcetreegit.html)
 を受講せよ
 
 ### **Git**
-[この記事](https://naichilab.blogspot.com/2014/01/gitsourcetreegit.html)の内容を皆で行うワークショップを開催する．
+- SourcetreeをPCにインストールせよ
+   - Atlassianのアカウントを作成する必要がある
+- ワークショップに参加せよ
+   - [この記事](https://naichilab.blogspot.com/2014/01/gitsourcetreegit.html)の内容を皆で行うワークショップを4/16に開催する．
 
 ### **Github**
-ワークショップを開催する．[参考資料](https://qiita.com/takeokunnn/items/5bc499121a21f8c5b990
-)．
+- Githubのアカウントを作成せよ
+- ワークショップに参加せよ
+   - 4/16に時間があれば行う．時間がなければ別の日程で行う．
+   - [参考資料](https://qiita.com/takeokunnn/items/5bc499121a21f8c5b990
+)
 
 ## **理論(線形代数・ベイズ)**
 > **獲得スキルセット**
