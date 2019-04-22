@@ -1,6 +1,9 @@
 ---
 name: Training
 about: これから取り組むトレーニングについて記す
+title: "[category] One phrase summarized training"
+labels: training
+assignees: ''
 
 ---
 
