@@ -44,7 +44,7 @@
 - Python環境をセットアップせよ．
    - Anaconda等を用いたPythonパッケージの導入．バージョンは3系であれば特に指定しない．
    - Jupyter notebookも起動できるようにしておく
-- [AidemyのPython入門コース](https://naichilab.blogspot.com/2014/01/gitsourcetreegit.html)
+- [AidemyのPython入門コース](https://aidemy.net/courses/3010)
 を受講せよ
 
 ### **Git**
