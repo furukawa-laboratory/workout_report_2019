@@ -5,9 +5,16 @@
 > - reviewしてほしいtrainer（M2以上のラボメンバー）をreviwerとして最低2人つけること．
 
 ## 取り組んだトレーニングの概要
-> トレーニングする前に発行したIssueを引用しながらトレーニング内容を要約する．`close`をつけるとこのプルリクエストのマージと同時にIssueがcloseする
+> トレーニングする前に発行したIssueを引用しながらトレーニング内容を要約する（２００字程度．長くなりすぎない）．  
+> `close`をつけるとこのプルリクエストのマージと同時にIssueがcloseする．  
+> アウトプットを端的に示す **one figure** も掲載すること
 
 close #(Issue No.)　
+
+xxxができるようになるためにoooに取り組んだ…
+
+<img width="524" alt="no one figure" src="https://user-images.githubusercontent.com/19607449/57610454-d088e280-75ab-11e9-9b10-d8495c6b9e9d.png">
+
 
 ## 獲得を目指したスキル
 > トレーニング前に発行したIssueを確認しながら書く
