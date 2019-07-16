@@ -1,0 +1,196 @@
+%matplotlib inline
+#%matplotlib nbagg
+#%matplotlib nbagg
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+from mpl_toolkits.mplot3d import Axes3D
+
+
+
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+plt.style.use("ggplot")
+
+
+#パラメータを12とする
+#1はバイアス
+def phi(x):
+    h = 0.1
+    return np.append(1, np.exp(-(x - np.arange(0, 1, 0.1))**2/(2*h **2)))
+ 
+X = np.linspace(0, 1)
+Y = np.array([phi(x) for x in X])
+#for i in range(1, 12):
+    #plt.plot(X, Y.T[i])
+
+
+    
+    
+def phi(x):#基底関数:ガウス関数
+    h = 0.1
+    return np.exp(-(x - np.arange(0, 1, 0.1))**2/(2*h **2))
+    
+def phi2(x):#基底関数:sin関数
+    m = 10
+    return np.sin(x*np.pi*np.arange(0,m))
+    
+def phi3(x):#基底関数：多項式
+    m = 10
+    return x**np.arange(0,m)
+    
+    
+#def phi(x):
+   # m = 20
+    #return x **  np.arange(0, m)
+ 
+X = np.linspace(0, 1)
+Y = np.array([phi(x) for x in X])
+#for i in range(1, 12):
+    #plt.plot(X, Y.T[i]    
+
+
+
+n = 15
+X = np.random.uniform(0, 1, n)
+T = np.cos(3 * np.pi * X) + np.random.normal(0, 0.1, n)
+#plt.scatter(X, T)
+#plt.plot(np.linspace(0,1), np.sin(2 * np.pi * np.linspace(0,1)), c ="g")
+#plt.show()    
+    
+
+    
+    
+#計画行列をつくる
+Phi = np.array([phi(x) for x in X])
+Phi2 = np.array([phi2(x) for x in X])
+Phi3 = np.array([phi3(x) for x in X])
+
+
+#ハイパーパラメータ
+alpha = 0.01
+beta = 9.0
+M = 10
+
+
+#事後確率の分散
+S = np.linalg.inv(alpha * np.eye(M) + beta * Phi.T.dot(Phi))
+S2 = np.linalg.inv(alpha * np.eye(M) + beta * Phi2.T.dot(Phi2))
+S3 = np.linalg.inv(alpha * np.eye(M) + beta * Phi3.T.dot(Phi3))
+
+#事後確率の平均
+m = beta * S.dot(Phi.T).dot(T)
+m2 = beta * S2.dot(Phi2.T).dot(T)
+m3 = beta * S3.dot(Phi3.T).dot(T)
+
+
+def sigma(x):
+    return 1.0/ beta + phi(x).dot(S).dot(phi(x))
+def norm(x,y):
+    return stats.norm(m.dot(phi(x)), sigma(x)).pdf(y)
+
+
+def sigma2(x):
+    return 1.0/ beta + phi2(x).dot(S2).dot(phi2(x))
+def norm2(x,y):
+    return stats.norm(m2.dot(phi2(x)), sigma2(x)).pdf(y)
+
+
+def sigma3(x):
+    return 1.0/ beta + phi3(x).dot(S3).dot(phi3(x))
+def norm3(x,y):
+    return stats.norm(m3.dot(phi3(x)), sigma3(x)).pdf(y)
+
+
+
+
+
+
+
+
+
+
+
+#グラフ化
+#メッシュの作製
+x_, y_ = np.meshgrid(np.linspace(0 ,1 ,100), np.linspace(-1.5, 1.5,80))
+
+
+Z = np.vectorize(norm)(x_,y_)
+Z2 = np.vectorize(norm2)(x_,y_)
+Z3= np.vectorize(norm3)(x_,y_)
+#x = np.linspace(0,1)
+y = [m.dot(phi(x__)) for x__ in x]
+y2 = [m2.dot(phi2(x__)) for x__ in x]
+y3 = [m3.dot(phi3(x__)) for x__ in x]
+
+plt.figure(figsize=(16, 10))
+
+#ガウス基底関数
+plt.subplot(2,2,1)
+plt.xlim(0, 1)
+plt.ylim(-1.5, 1.5)
+plt.pcolor(x_, y_, Z,cmap='jet',alpha=0.2)
+plt.colorbar()
+plt.scatter(X, T)
+plt.plot(np.linspace(0,1), np.cos(3 * np.pi * np.linspace(0,1)), c ="royalblue")
+plt.plot(x, y)
+plt.title("Gaussian basis function")
+
+#多項式基底関数
+plt.subplot(2,2,2)
+plt.pcolor(x_, y_, Z3,cmap='jet',alpha=0.2)
+plt.colorbar()
+plt.xlim(0, 1)
+plt.ylim(-1.5, 1.5)
+#点のプロット
+plt.scatter(X, T)
+plt.plot(np.linspace(0,1), np.cos(3 * np.pi * np.linspace(0,1)), c ="royalblue")
+#予測分布の平均
+plt.plot(x, y3)
+plt.title("Polynomial basis function")
+
+
+#sin基底関数
+plt.subplot(2,2,3)
+plt.pcolor(x_, y_, Z2,cmap='jet',alpha=0.2)
+plt.colorbar()
+plt.xlim(0, 1)
+plt.ylim(-1.5, 1.5)
+#点のプロット
+plt.scatter(X, T)
+#予測関数の平均
+plt.plot(x, y2)
+plt.title("Sine basis function")
+
+
+#真の関数プロット
+plt.plot(np.linspace(0,1), np.cos(3 * np.pi * np.linspace(0,1)), c ="royalblue")
+plt.show()
+ 
+#事後分布から得られるパラメータのサンプル
+#m_list = [np.random.multivariate_normal(m, S) for i in range(3)]
+ 
+for m_ in m_list:
+    x = np.linspace(0,1)
+    y = [m_.dot(phi(x__)) for x__ in x]
+    plt.plot(x, y, c = "r")
+    plt.plot(np.linspace(0,1), np.cos(3 * np.pi * np.linspace(0,1)), c ="g")
+    
+    
+'''
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+
+surf = ax.plot_surface(y_, x_, Z2, cmap=cm.coolwarm,
+                       linewidth=0, antialiased=False)
+
+# Customize the z axis.
+ax.set_zlim(0, 10)
+ax.zaxis.set_major_locator(LinearLocator(10))
+ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+
+# Add a color bar which maps values to colors.
+fig.colorbar(surf, shrink=0.5, aspect=5)
+'''
+plt.show()
