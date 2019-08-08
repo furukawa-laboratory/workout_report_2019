@@ -1,0 +1,91 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import cross_val_score
+from sklearn.linear_model import Ridge
+from sklearn import linear_model
+
+def true_fun(X):
+    return np.cos( 3*np.pi * X)
+
+np.random.seed(0)
+n_samples = 30 #30個の点を用意
+degrees = [15] #14次
+X = np.sort(np.random.rand(n_samples))
+y = true_fun(X) + np.random.randn(n_samples) * 0.1  #真の関数にノイズを乗せる。
+
+plt.figure(figsize=(14, 5))
+for i in range(len(degrees)):
+    ax = plt.subplot(1, len(degrees), i + 1)
+    plt.setp(ax, xticks=(), yticks=())
+
+    polynomial_features = PolynomialFeatures(degree=degrees[i],
+                                             include_bias=False)  　　 #多項式の定義
+    linear_regression = linear_model.Ridge(alpha=0.0001)               #リッジ回帰の定義
+    
+    pipeline = Pipeline([("polynomial_features", polynomial_features),
+                         ("linear_regression", linear_regression)])
+    pipeline.fit(X[:, np.newaxis], y)
+
+    # 評価
+    scores = cross_val_score(pipeline, X[:, np.newaxis], y,
+                             scoring="neg_mean_squared_error", cv=10)
+    reg=linear_regression
+    reg.coef_
+    print(reg.coef_)
+   
+   
+    
+    
+    linear_regression2 = linear_model.Ridge(alpha=0.0)
+    pipeline2 = Pipeline([("polynomial_features", polynomial_features),
+                         ("linear_regression", linear_regression2)])
+    pipeline2.fit(X[:, np.newaxis], y)
+
+    # 評価
+    scores2 = cross_val_score(pipeline2, X[:, np.newaxis], y,
+                             scoring="neg_mean_squared_error", cv=10)
+    
+    
+    reg=linear_regression2
+    reg.coef_
+    print(reg.coef_)
+    
+    
+
+    
+    
+    #plt.figure(figsize=(3, 3))
+    plt.subplot(1,2,1)
+    
+    
+    X_test = np.linspace(0, 1, 100)  #０から１の間に100個の等差数列を作る。
+    #学習した関数
+    plt.plot(X_test, true_fun(X_test), label="True function")
+    plt.plot(X_test, pipeline.predict(X_test[:, np.newaxis]), label="Model")
+    plt.scatter(X, y, edgecolor='b', s=20, label="Samples")
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.xlim((0, 1))
+    plt.ylim((-2, 2))
+    plt.legend(loc="best")
+    plt.title("Degree {}\n  penalty (λ=0.0001)".format(
+        degrees[i], -scores.mean(), scores.std()))
+    
+   
+    plt.subplot(1,2,2)
+    plt.plot(X_test, true_fun(X_test), label="True function")
+    plt.plot(X_test, pipeline2.predict(X_test[:, np.newaxis]), label="Model")
+    plt.scatter(X, y, edgecolor='b', s=20, label="Samples")
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.xlim((0, 1))
+    plt.ylim((-2, 2))
+    plt.legend(loc="best")
+    plt.title("Degree {}\n No penalty (λ=0)".format(
+        degrees[i], -scores.mean(), scores.std()))
+    
+    
+plt.show()
